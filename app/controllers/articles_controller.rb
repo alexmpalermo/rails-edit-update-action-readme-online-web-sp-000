@@ -25,7 +25,7 @@ end
  
 def update
   @article = Article.find(params[:id])
-  @article.update(title: params[:title], description: params[:description])
+  @article.update(params.require(:article).permit(:title, :description))
   redirect_to article_path(@article)
 end
   # add edit and update methods here
